@@ -5,8 +5,8 @@
  *
  * font: see http://freedesktop.org/software/fontconfig/fontconfig-user.html
  */
-static char *font = "Liberation Mono:pixelsize=12:antialias=true:autohint=true";
-static int borderpx = 2;
+static char *font = "Inconsolata Nerd Font:pixelsize=32:antialias=true:autohint=true";
+static int borderpx = 4;
 
 /*
  * What program is execed by st depends of these precedence rules:
@@ -83,7 +83,8 @@ char *termname = "st-256color";
 unsigned int tabspaces = 8;
 
 /* bg opacity */
-unsigned int alpha = 0xcc;
+/* unsigned int alpha = 0xcc; */
+unsigned int alpha = 0xbd;
 
 /* Terminal colors (16 first used in escape sequence) */
 static const char *colorname[] = {
@@ -121,7 +122,7 @@ static const char *colorname[] = {
  * foreground, background, cursor, reverse cursor
  */
 unsigned int defaultfg = 7;
-unsigned int defaultbg = 257;
+unsigned int defaultbg = 0;
 static unsigned int defaultcs = 256;
 static unsigned int defaultrcs = 257;
 
@@ -182,8 +183,9 @@ static Shortcut shortcuts[] = {
 	{ TERMMOD,              XK_Y,           selpaste,       {.i =  0} },
 	{ ShiftMask,            XK_Insert,      selpaste,       {.i =  0} },
 	{ TERMMOD,              XK_Num_Lock,    numlock,        {.i =  0} },
-	{ ShiftMask,            XK_Page_Up,     kscrollup,      {.i = -1} },
-	{ ShiftMask,            XK_Page_Down,   kscrolldown,    {.i = -1} },
+  { TERMMOD,              XK_K,           kscrollup,      {.i = +10} },
+	{ TERMMOD,              XK_J,           kscrolldown,    {.i = -10} },
+
 };
 
 /*
